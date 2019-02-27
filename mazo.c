@@ -23,6 +23,12 @@ int main(){
     printf("%p\n", cartas);
     reparte(mazo, caras, palo, cartas);
 
+    for (i=0; i<52; i++){
+        for (j=0; cartas[i][j]!= '\0'; j++){
+            printf("%c", cartas[i][j]);
+        }
+        printf("\n");
+    }
 }
 
 
@@ -57,7 +63,7 @@ void reparte (int wMazo[4][13], char *wCara[], char *wPalo[], char *cartaPalo){
                         *(cartaPalo + j) = wCara[columna][i];
                         j++;
                     }
-                    //ciclo que inserta " de " a ñla carta
+                    //ciclo que inserta " de " a la carta
                     for (i=0; i<4; i++){
                         *(cartaPalo + j) = palabra[i];
                         j++;
