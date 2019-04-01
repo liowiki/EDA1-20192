@@ -26,14 +26,14 @@ int main(){
     printf("? ");
     scanf("%d", &eleccion);
 
-    while (eleccion != 3){
+    while (eleccion != 4){
         switch (eleccion){
         case 1:
             printf("introduce el caracter: ");
             scanf("\n%c", &elemento);
             insertar(&ptrInicial, elemento);
 
-            imprimirLista(ptrInicial);
+            //imprimirLista(ptrInicial);
             break;
         case 2:
             if (!estaVacia(ptrInicial)){
@@ -49,6 +49,10 @@ int main(){
             }else{
                 printf("La lista esta vacia\n ");
             }
+            break;
+        case 3:
+
+            imprimirLista(ptrInicial);
             break;
 
         default:
@@ -66,12 +70,13 @@ int main(){
 }
 
 void instrucciones(void){
-    printf("seleccione:\n 1) insertar \n 2)eliminar \n 3)salir\n ");
+    printf("seleccione:\n 1) insertar \n 2) eliminar \n 3) imprimir Lista \n 4) Salir\n ");
 }
 
 void insertar(ptrNodoLista *ptrS, char valor){
     ptrNodoLista ptrNuevo;
-    ptrNodoLista ptrAnterior;
+    ptrNodoLista
+    ptrAnterior;
     ptrNodoLista ptrActual;
 
     ptrNuevo = malloc(sizeof(NodoLista));
@@ -84,10 +89,10 @@ void insertar(ptrNodoLista *ptrS, char valor){
         ptrActual = *ptrS;
 
 
-        while (ptrActual != NULL && valor > ptrActual->dato){
+        /*while (ptrActual != NULL && valor > ptrActual->dato){
             ptrAnterior = ptrActual;
             ptrActual = ptrActual->ptrSiguiente;
-        }
+        }*/
 
         if (ptrAnterior == NULL){
             ptrNuevo->ptrSiguiente = *ptrS;
@@ -135,14 +140,19 @@ int estaVacia(ptrNodoLista ptrS){
 }
 
 void imprimirLista(ptrNodoLista ptrActual){
+    system("clear");
     if (ptrActual == NULL){
         printf("La lista esta vacia \n");
     }else{
-        printf("la lista es esta:\n");
+        //printf("la lista es esta:\n");
+        system("clear");
         while(ptrActual != NULL){
-            printf("%c --> ", ptrActual->dato);
+            printf("%c \n", ptrActual->dato);
             ptrActual = ptrActual->ptrSiguiente;
+            sleep(1);
+            system("clear");
         }
-        printf("NULL\n");
+        //printf("NULL\n");
+        instrucciones();
     }
 }

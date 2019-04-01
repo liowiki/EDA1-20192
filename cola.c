@@ -1,5 +1,4 @@
- /* Figura 12.13: fig12_13.c
- Operación y mantenimiento de una cola */
+
  #include <stdio.h>
  #include <stdlib.h>
  /* estructura autorreferenciada */
